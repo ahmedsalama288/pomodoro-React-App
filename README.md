@@ -18,7 +18,7 @@ To use this Pomodoro React App, you will need to install Node.js on your compute
 ## Usage
 Once the app is running, you can choose between three different modes: pomodoro, short break, and long break. By default, the pomodoro mode is selected, and the timer starts counting down from the default time of 25 minutes.
 
-You can customize the time of each mode and the font family and timer color by clicking the settings icon in the top right corner of the app. From there, you can adjust the time settings and select the font family and timer color of your choice.
+You can customize the time of each mode and the font family and timer color by clicking the settings icon in the bottom of the app. From there, you can adjust the time settings and select the font family and timer color of your choice.
 
 ## Contributing
 If you'd like to contribute to this project, please follow these steps:
