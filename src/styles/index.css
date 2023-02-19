@@ -1,0 +1,464 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@500;700&family=Roboto+Slab:wght@500;700&family=Space+Mono:wght@700&family=Ubuntu:wght@400;500;700&display=swap");
+:root {
+  --main-font-color: #d7e0ff;
+  --font-one: "Kumbh Sans", sans-serif;
+  --button-backgroundcolor: #f87272;
+  --buttons-border-color-popup: rgba(239, 241, 250, 1);
+}
+
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #161932;
+  font-family: var(--font-one);
+  color: var(--main-font-color);
+}
+
+.active {
+  color: black !important;
+  background-color: var(--button-backgroundcolor) !important;
+}
+
+main {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  max-height: 100vh;
+  font-family: inherit;
+  padding: 0px 10px;
+  z-index: 1;
+}
+main > header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 34px 0px;
+}
+main > header > h1 {
+  font-family: "Ubuntu", sans-serif;
+}
+main > header nav {
+  max-width: 100%;
+}
+main > header nav .buttons-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 44px;
+  list-style: none;
+  color: white;
+  background-color: #1e213f;
+  width: 380px;
+  max-width: 100%;
+  padding: 5px;
+  border-radius: 32px;
+}
+main > header nav .buttons-container button {
+  cursor: pointer;
+  width: 120px;
+  flex-shrink: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: 4px solid #1e213f;
+  color: white;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 32px;
+  padding: 9px 4px;
+  letter-spacing: 0.3px;
+  word-spacing: 1px;
+  transition: 0.2s;
+}
+main > header nav .buttons-container button:focus {
+  border: 4px solid #474c66;
+  color: black;
+  background-color: var(--button-backgroundcolor);
+}
+@media (max-width: 450px) {
+  main > header {
+    margin: 20px 0px;
+  }
+  main > header .buttons-container {
+    margin-top: 30px !important;
+  }
+}
+main > .timer-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+main > .timer-container .timer-btn {
+  font-family: inherit;
+  position: relative;
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: #161932;
+  border: 4px solid transparent;
+}
+main > .timer-container .timer-btn:focus {
+  outline: none;
+  border: 4px solid #474c66;
+}
+main > .timer-container .timer-btn:hover .timer-svg {
+  box-shadow: -40px 30px 68px 30px rgba(246, 246, 246, 0.12);
+}
+main > .timer-container .timer-btn:hover .timer-svg .border-circle {
+  stroke: #161932;
+}
+main > .timer-container .timer-btn .timer-svg {
+  display: flex;
+  width: 384px;
+  height: 384px;
+  border-radius: 50%;
+  background-color: #161932;
+  transform: rotate(-90deg);
+  box-shadow: 30px -40px 68px 30px rgba(246, 246, 246, 0.12);
+}
+main > .timer-container .timer-btn .timer-svg .border-circle {
+  fill: none;
+  stroke: url(#gradient);
+  stroke-dasharray: 311%;
+  stroke-dashoffset: 0;
+  stroke-width: 9px;
+  transform-origin: 50% 50%;
+  transform: rotate(45deg);
+}
+main > .timer-container .timer-btn .timer-svg .timer-circle {
+  fill: none;
+  stroke: var(--button-backgroundcolor);
+  stroke-linecap: round;
+  stroke-width: 12px;
+  stroke-dasharray: 277%;
+  transition: 0.5s;
+}
+main > .timer-container .timer-btn .timer-states-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  gap: 4px;
+  top: 51%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+main > .timer-container .timer-btn .timer-states-container span {
+  color: var(--main-font-color);
+  font-weight: 700;
+}
+main > .timer-container .timer-btn .timer-states-container #time-state {
+  font-size: 90px;
+  width: 100%;
+}
+main > .timer-container .timer-btn .timer-states-container #btn-state {
+  font-size: 19px;
+  letter-spacing: 25px;
+  padding-left: 27px;
+}
+@media (max-width: 450px) {
+  main > .timer-container .timer-btn {
+    width: 296px;
+    height: 296px;
+  }
+  main > .timer-container .timer-btn .timer-svg {
+    width: 288px;
+    height: 288px;
+  }
+  main > .timer-container .timer-btn .timer-svg .border-circle {
+    stroke-width: 8px;
+  }
+  main > .timer-container .timer-btn .timer-svg .timer-circle {
+    stroke-width: 8px;
+  }
+  main > .timer-container .timer-btn .timer-states-container {
+    top: 52%;
+  }
+  main > .timer-container .timer-btn .timer-states-container #time-state {
+    font-size: 68px;
+  }
+  main > .timer-container .timer-btn .timer-states-container #btn-state {
+    font-size: 14px;
+  }
+}
+main > .setting-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+main > .setting-button button {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 4px solid transparent;
+}
+main > .setting-button button:focus {
+  border: 4px solid #474c66;
+}
+main .popup-styling-settings {
+  display: none;
+  max-width: 94%;
+  width: 448px;
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  color: #161932;
+  font-family: "Ubuntu", sans-serif;
+  border-radius: 12px;
+  background-color: white;
+  z-index: 2;
+  transition: opacity 0.5s ease-in-out;
+}
+main .popup-styling-settings header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  border-bottom: 2px solid var(--buttons-border-color-popup);
+}
+main .popup-styling-settings header h1 {
+  font-size: 20px;
+  text-transform: capitalize;
+  padding-left: 11px;
+}
+main .popup-styling-settings header button {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  width: 45px;
+  height: 45px;
+  border: 4px solid transparent;
+  border-radius: 50%;
+}
+main .popup-styling-settings header button:focus {
+  outline: none;
+  border-color: var(--buttons-border-color-popup);
+}
+main .popup-styling-settings > .container {
+  padding: 8px 28px 20px;
+}
+main .popup-styling-settings > .container .time-setting {
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--buttons-border-color-popup);
+}
+main .popup-styling-settings > .container .time-setting h2 {
+  font-size: 14px;
+  padding-top: 3px;
+  padding-left: 2px;
+}
+main .popup-styling-settings > .container .time-setting .change-times {
+  padding-top: 35px;
+  display: flex;
+  gap: 7px;
+}
+main .popup-styling-settings > .container .time-setting .change-times > div {
+  display: flex;
+  flex-direction: column;
+}
+main .popup-styling-settings > .container .time-setting .change-times > div > label {
+  font-weight: 400;
+  font-size: 12px;
+  padding: 0px 0px 2px 4px;
+}
+main .popup-styling-settings > .container .time-setting .change-times > div > input {
+  width: 100%;
+  font-family: inherit;
+  background-color: #eff1fa;
+  border: 4px solid white;
+  border-radius: 14px;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 700;
+}
+main .popup-styling-settings > .container .time-setting .change-times > div > input:focus {
+  outline: none;
+  border-color: rgb(215, 224, 255);
+}
+main .popup-styling-settings > .container .time-setting .error-massage {
+  display: flex;
+  padding: 5px;
+  margin-top: 5px;
+  line-height: 1.4;
+  gap: 5px;
+  color: #fba2a2;
+}
+main .popup-styling-settings > .container .customize-fonts {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0px;
+  border-bottom: 1px solid var(--buttons-border-color-popup);
+}
+main .popup-styling-settings > .container .customize-fonts h2 {
+  font-size: 14px;
+}
+main .popup-styling-settings > .container .customize-fonts > div {
+  display: flex;
+  gap: 10px;
+}
+main .popup-styling-settings > .container .customize-fonts > div > button {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #eff1fa;
+  width: 40px;
+  height: 40px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 50%;
+  border: 4px solid white;
+}
+main .popup-styling-settings > .container .customize-fonts > div > button.active-font-btn {
+  background-color: #161932;
+  color: white;
+}
+main .popup-styling-settings > .container .customize-fonts > div > button:focus {
+  outline: 2px solid var(--buttons-border-color-popup);
+  outline-offset: -2px;
+}
+main .popup-styling-settings > .container .customize-fonts > div > button:hover {
+  outline: 2px solid var(--buttons-border-color-popup);
+  outline-offset: -2px;
+}
+main .popup-styling-settings > .container .customize-fonts > div > button:nth-child(1) {
+  font-family: "Kumbh Sans", sans-serif;
+}
+main .popup-styling-settings > .container .customize-fonts > div > button:nth-child(2) {
+  font-family: "Roboto Slab", serif;
+}
+main .popup-styling-settings > .container .customize-fonts > div > button:nth-child(3) {
+  font-family: "Space Mono", monospace;
+}
+main .popup-styling-settings > .container .customize-colors {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0px 30px;
+}
+main .popup-styling-settings > .container .customize-colors h2 {
+  font-size: 14px;
+}
+main .popup-styling-settings > .container .customize-colors > div {
+  display: flex;
+  gap: 10px;
+}
+main .popup-styling-settings > .container .customize-colors > div > button {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #eff1fa;
+  width: 40px;
+  height: 40px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 50%;
+  border: 4px solid white;
+}
+main .popup-styling-settings > .container .customize-colors > div > button:focus {
+  outline: 2px solid var(--buttons-border-color-popup);
+  outline-offset: -2px;
+  background-color: #161932;
+  color: white;
+}
+main .popup-styling-settings > .container .customize-colors > div > button:hover {
+  outline: 2px solid var(--buttons-border-color-popup);
+  outline-offset: -2px;
+}
+main .popup-styling-settings > .container .customize-colors > div > button > svg {
+  display: none;
+}
+main .popup-styling-settings > .container .customize-colors > div > button.active-color-btn > svg {
+  display: block;
+}
+main .popup-styling-settings > .container .customize-colors > div > button:nth-child(1) {
+  background-color: #f87272;
+}
+main .popup-styling-settings > .container .customize-colors > div > button:nth-child(2) {
+  background-color: #70f3f8;
+}
+main .popup-styling-settings > .container .customize-colors > div > button:nth-child(3) {
+  background-color: #d881f8;
+}
+main .popup-styling-settings .apply {
+  width: 100%;
+  position: relative;
+}
+main .popup-styling-settings .apply > button {
+  cursor: pointer;
+  position: absolute;
+  bottom: -21px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 33px;
+  border-radius: 35px;
+  font-size: 18px;
+  font-weight: 500;
+  text-transform: capitalize;
+  color: white;
+  border: none;
+  transition: background-color 0.3s;
+  background-color: #f87272;
+}
+main .popup-styling-settings .apply > button:hover {
+  background-color: #fba2a2;
+}
+main .popup-styling-settings .apply > button:focus {
+  outline: 4px solid rgba(255, 255, 255, 0.25);
+}
+@media (max-width: 450px) {
+  main .popup-styling-settings {
+    max-width: 92%;
+    top: 50%;
+  }
+}
+main .out-layer {
+  display: none;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(22, 25, 50, 0.5);
+  z-index: 0;
+}
+
+.display-popup {
+  display: block !important;
+  opacity: 0;
+  animation: opacityAnimation 0.3s ease-in-out forwards;
+}
+
+@keyframes opacityAnimation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.invalid-value {
+  color: #f87272;
+}
+.invalid-value > input {
+  color: #f87272;
+  border: 2px solid #f87272 !important;
+}/*# sourceMappingURL=index.css.map */
